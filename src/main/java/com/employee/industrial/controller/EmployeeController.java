@@ -21,6 +21,7 @@ import com.employee.industrial.entity.Employee;
 public class EmployeeController {
 
 	HashMap<Integer, Employee> cache = new HashMap<>();
+// This is the create api for employee
 
 	@PostMapping("/createEmployee")
 	public Employee createEmployee(@RequestBody Employee employee) {
@@ -30,11 +31,15 @@ public class EmployeeController {
 		return cache.get(employee.empId);
 	}
 
+	// This is the get api for employee
+
 	@GetMapping("/getemployee/{empId}")
 	public Employee getemployee(@RequestParam Integer empId) {
 
 		return cache.get(empId);
 	}
+
+		// This is the update api for employee
 
 	@PutMapping("/updateEmployee/{empId}")
 	public Employee updateEmployee(@RequestBody Employee employee) {
@@ -46,6 +51,8 @@ public class EmployeeController {
 		cache.put(oldEmp.getEmpId(), oldEmp);
 		return cache.get(employee.getEmpId());
 	}
+
+		// This is the delete api for employee
 
 	@DeleteMapping("/deleteEmployee/{empId)")
 	public Employee deleteEmployee(@RequestParam Integer empId) {
